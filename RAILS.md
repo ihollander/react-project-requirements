@@ -1,5 +1,7 @@
 # Rails API Setup
 
+To create a new Rails API, run this code (make sure you're not in the same directory as your React app, since `rails new` will create a new Git repository):
+
 ```
 rails new <my-project-server> --api -T --database=postgresql
 ```
