@@ -5,8 +5,8 @@ You've made it! You're ready to build a React application! We're going to be bui
 ## Requirements
 
 - React frontend
-- Rails backend, or `json-server` (talk to your instructors)
-- User stories to handle at least 4 different CRUD actions on your models
+- Rails backend
+- User stories, at least one for each CRUD action
 
 ## Phase 1: Planning
 
@@ -118,13 +118,25 @@ After review, you can start working on the next steps.
 
 ## Phase 5: Backend and Client-Server Communication
 
-By building out your static site you should now have a great sense of how you would like your data structured in the frontend.
+By building out your static site you should now have a great sense of how you would like your data structured in the frontend. Now that that's done, let's turn our attention to the backend so you can add a database and persistence to your application.
 
-Depending on how much time there is left for your project, your instructors will either ask you to build out a Rails API for the backend or to use `json-server` as a simpler option.
+To create a new Rails API, run this code (make sure you're not in the same directory as your React app, since `rails new` will create a new Git repository):
 
-You can find [Rails setup instructions here](RAILS.md) and [`json-server` instructions here](JSON-SERVER.md).
+```
+rails new <my-project-server> --api -T --database=postgresql
+```
 
-Remember, running `rails new` will create a new Git repository, so make sure you are in a different directory from your React application when you create your Rails app.
+Let's go through this in detail:
+
+* `--api`
+  *  Make a [Rails 5 API](http://edgeguides.rubyonrails.org/api_app.html), basically you're telling Rails you don't want any of the stuff you wouldn't need for an application where Rails is not rendering views. Think the ActionView library (`form_for`, `link_to`, etc..), ERB, Security protections that ensure forms were rendered by the Rails app, things like that.
+* `-T`
+  * don't generate tests for this app
+* `--database=postgresql`
+  * Set this up to use a Postgres (as opposed to SQLite) database. If you ever want to push this to Heroku, Heroku requires a Postgres database. There won't be too much difference in how you have to write your code. You'll have to be sure to run `rails db:create` and make sure you have postgres running (i.e you can see the elephant)
+* Be sure to do the necessary setup for the [rack-cors-gem](https://github.com/cyu/rack-cors)
+* You may want to use [active-model-serializers](https://github.com/rails-api/active_model_serializers/tree/0-10-stable)
+* A great article on how [DHH thinks about setting up controllers in Rails](http://jeromedalbert.com/how-dhh-organizes-his-rails-controllers/)
 
 Once you have your backend set up with some seed data, make sure you are able to fetch that data from your frontend. Then, work on building out your CRUD features so that they persist to the backend. Think about when you'll need to request data from the backend (component lifecycle methods), and when you'll need to send data to the backend (user events).
 
@@ -145,7 +157,6 @@ There are a lot of great React libraries out there, so feel free to experiment -
 By default both your client app and your rails app will run on port 3000. You'll have to specify one or the other to run on a separate port.
 
 * Rails: `rails s -p 3001`
-* json-server: `json-server --watch db.json --port 3001`
 * React: Check out this [Stack Overflow](https://stackoverflow.com/a/50869504)
 
 It is highly suggested that any calls to 3rd party APIs are made _through your backend_.
