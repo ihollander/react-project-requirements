@@ -1,4 +1,4 @@
-# Mod 4 React Guided Project 
+# Mod 4 React Project Guidelines
 
 You've made it! You're ready to build a React application! We're going to be building the app from scratch, following the guidelines from [Thinking in React](https://reactjs.org/docs/thinking-in-react.html) to build your project incrementally.
 
@@ -46,7 +46,7 @@ After planning, make a copy of the [Project Pitch Template](https://docs.google.
 
 **This should take about half a day**.
 
-To create your React project, you may use a tool called [create-react-app](https://github.com/facebookincubator/create-react-app), an awesome project generator developed by Facebook. To use this, in the directory where you'd like to create your project, `npx create-react-app my-project-client`. It's that simple!
+To create your React project, you should use a tool called [create-react-app](https://create-react-app.dev/), an awesome project generator developed by Facebook. To use this, in the directory where you'd like to create your project, `npx create-react-app my-project-client`. It's that simple!
 
 We'd recommend to begin by removing any of the default files and code given to you by Create React App that you do not understand.
 
